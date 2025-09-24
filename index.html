@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakdee Suangkudrau - Arcade Profile</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #ff0080, #7928ca, #2af598, #ff8c00);
+      background-size: 800% 800%;
+      animation: bgAnimation 15s ease infinite;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 25px #ff00de, 0 0 50px #00ffe7;
+      border: 2px solid #ff00de;
+    }
+
+    .profile-card img {
+      width: 220px;
+      height: 220px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+      border: none; /* ใช้กรอบไฟแทน */
+    }
+
+    /* กรอบไฟเรืองแสงวิ่งรอบรูป */
+    .profile-card img::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ff00de, #00ffe7, #ff8c00, #ff00de);
+      background-size: 400% 400%;
+      animation: borderMove 6s linear infinite;
+      z-index: -1;
+      filter: blur(6px);
+    }
+
+    @keyframes borderMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-card h1 {
+      color: #fff;
+      font-size: 18px;
+      margin: 15px 0;
+      text-shadow: 0 0 10px #ff00de, 0 0 20px #00ffe7;
+    }
+
+    .profile-card p {
+      color: #ccc;
+      font-size: 12px;
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #00ffe7;
+      text-shadow: 0 0 5px #ff00de, 0 0 10px #00ffe7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      color: #fff;
+      background: linear-gradient(45deg, #ff00de, #00ffe7);
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 12px;
+      box-shadow: 0 0 15px #ff00de, 0 0 25px #00ffe7;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="image-wrapper">
+      <img src="ดาวน์โหลด (1).png" alt="Pakdee">
+    </div>
+    <h1>Pakdee Suangkudrau</h1>
+    <p><span class="highlight">E-mail:</span> pakdee222534@gmail.com</p>
+    <p><span class="highlight">Department:</span> Computer </p>
+    <p><span class="highlight">Faculty:</span> Ban Muang Nam (Prachasit Witthaya) School</p>
+    <a href="mailto:pakdee222534@gmail.com" class="btn">🎮 Contact Me</a>
+  </div>
+</body>
+</html>
