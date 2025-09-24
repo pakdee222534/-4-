@@ -1,123 +1,278 @@
+
+</html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pakdee Suangkudrau - Arcade Profile</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(270deg, #ff0080, #7928ca, #2af598, #ff8c00);
-      background-size: 800% 800%;
-      animation: bgAnimation 15s ease infinite;
-      font-family: 'Press Start 2P', cursive;
-    }
-
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .profile-card {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 400px;
-      width: 100%;
-      box-shadow: 0 0 25px #ff00de, 0 0 50px #00ffe7;
-      border: 2px solid #ff00de;
-    }
-
-    .profile-card img {
-      width: 220px;
-      height: 220px;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      border: none; /* ใช้กรอบไฟแทน */
-    }
-
-    /* กรอบไฟเรืองแสงวิ่งรอบรูป */
-    .profile-card img::after {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      width: calc(100% + 8px);
-      height: calc(100% + 8px);
-      border-radius: 12px;
-      background: linear-gradient(90deg, #ff00de, #00ffe7, #ff8c00, #ff00de);
-      background-size: 400% 400%;
-      animation: borderMove 6s linear infinite;
-      z-index: -1;
-      filter: blur(6px);
-    }
-
-    @keyframes borderMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .profile-card h1 {
-      color: #fff;
-      font-size: 18px;
-      margin: 15px 0;
-      text-shadow: 0 0 10px #ff00de, 0 0 20px #00ffe7;
-    }
-
-    .profile-card p {
-      color: #ccc;
-      font-size: 12px;
-      margin: 8px 0;
-      line-height: 1.6;
-    }
-
-    .highlight {
-      color: #00ffe7;
-      text-shadow: 0 0 5px #ff00de, 0 0 10px #00ffe7;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      color: #fff;
-      background: linear-gradient(45deg, #00ffe7);
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 12px;
-      box-shadow: 0 0 15px #ff00de, 0 0 25px #00ffe7;
-      transition: transform 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แดชบอร์ดข้อมูลลูกค้า</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            padding: 2rem;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+        .chart-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        input[type="text"] {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="profile-card">
-    <div class="image-wrapper">
-      <img src="ดาวน์โหลด (1).png" alt="Pakdee">
+
+    <div class="container">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-4">แดชบอร์ดข้อมูลลูกค้า</h1>
+
+        <!-- Cards Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="card">
+                <div class="card-title">จำนวนผู้ใช้งานทั้งหมด</div>
+                <div id="total-users" class="card-value"></div>
+            </div>
+            <div class="card">
+                <div class="card-title">ความพึงพอใจเฉลี่ย</div>
+                <div id="avg-satisfaction" class="card-value"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Bar Chart Section -->
+            <div class="chart-container">
+                <h2 class="text-xl font-bold text-gray-700 mb-4">จำนวนลูกค้าแยกตามแพลตฟอร์มที่นิยม</h2>
+                <canvas id="platform-chart"></canvas>
+            </div>
+            
+            <!-- Data Table Section -->
+            <div class="table-container">
+                <h2 class="text-xl font-bold text-gray-700 mb-2">ตารางข้อมูลทั้งหมด</h2>
+                <input type="text" id="search-input" placeholder="ค้นหาข้อมูล..." class="focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>อายุ</th>
+                            <th>เพศ</th>
+                            <th>รายได้</th>
+                            <th>การศึกษา</th>
+                            <th>ที่ตั้ง</th>
+                            <th>ความถี่การซื้อ</th>
+                            <th>แพลตฟอร์ม</th>
+                            <th>ยอดใช้จ่ายเฉลี่ย</th>
+                            <th>ช่องทางการชำระ</th>
+                            <th>หมวดหมู่สินค้า</th>
+                            <th>คะแนนพึงพอใจ</th>
+                            <th>โอกาสแนะนำ</th>
+                            <th>วันล่าสุดที่ซื้อ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be rendered here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <h1>Pakdee Suangkudrau</h1>
-    <p><span class="highlight">E-mail:</span> pakdee222534@gmail.com</p>
-    <p><span class="highlight">Department:</span> Computer </p>
-    <p><span class="highlight">Faculty:</span> Ban Muang Nam (Prachasit Witthaya) School</p>
-    <a href="mailto:pakdee222534@gmail.com" class="btn">🎮 Contact Me</a>
-  </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const DATA_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4ZaP9b5W9AVkobOr-fod7O0MH5f_aBjQZILaoTFos9JfXX_Hj3kPbcKE6BQEyMJfRFbJ1FmyOxbLr/pub?gid=0&single=true&output=csv';
+
+            let rawData = [];
+
+            // Fetch and process data
+            async function fetchData() {
+                try {
+                    const response = await fetch(DATA_URL);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const csvText = await response.text();
+                    rawData = parseCsv(csvText);
+                    updateDashboard(rawData);
+                } catch (error) {
+                    console.error('Failed to fetch data:', error);
+                    // Display an error message on the dashboard if fetching fails
+                    document.getElementById('total-users').textContent = 'N/A';
+                    document.getElementById('avg-satisfaction').textContent = 'N/A';
+                    document.getElementById('data-table').innerHTML = '<p class="text-red-500 text-center">ไม่สามารถดึงข้อมูลได้ โปรดลองใหม่อีกครั้งภายหลัง</p>';
+                }
+            }
+
+            // Function to parse CSV data
+            function parseCsv(csv) {
+                const lines = csv.trim().split('\n');
+                const headers = lines[0].split(',');
+                const data = lines.slice(1).map(line => {
+                    const values = line.split(',');
+                    const obj = {};
+                    headers.forEach((header, i) => {
+                        obj[header.trim()] = values[i].trim();
+                    });
+                    return obj;
+                });
+                return data;
+            }
+
+            function updateDashboard(data) {
+                // --- Card Metrics Calculations ---
+                const totalUsers = data.length;
+                const totalSatisfaction = data.reduce((sum, row) => sum + parseFloat(row.satisfaction_score), 0);
+                const avgSatisfaction = (totalSatisfaction / totalUsers).toFixed(2);
+
+                document.getElementById('total-users').textContent = totalUsers;
+                document.getElementById('avg-satisfaction').textContent = avgSatisfaction;
+
+                // --- Bar Chart Rendering ---
+                const platformCounts = {};
+                data.forEach(row => {
+                    const platform = row.preferred_platform;
+                    platformCounts[platform] = (platformCounts[platform] || 0) + 1;
+                });
+
+                const sortedPlatforms = Object.keys(platformCounts).sort((a, b) => platformCounts[b] - platformCounts[a]);
+                const chartData = sortedPlatforms.map(platform => ({
+                    label: platform,
+                    value: platformCounts[platform]
+                }));
+
+                const canvas = document.getElementById('platform-chart');
+                const ctx = canvas.getContext('2d');
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetWidth * 0.6;
+
+                function drawBarChart() {
+                    const chartWidth = canvas.width - 60;
+                    const chartHeight = canvas.height - 40;
+                    const barWidth = chartWidth / (chartData.length * 1.5);
+                    const maxVal = Math.max(...chartData.map(d => d.value)) * 1.2;
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#4b5563';
+                    ctx.font = '14px Inter';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+
+                    chartData.forEach((item, i) => {
+                        const x = 30 + i * (barWidth * 1.5) + barWidth / 2;
+                        const barHeight = (item.value / maxVal) * chartHeight;
+                        const y = canvas.height - 20 - barHeight;
+
+                        ctx.fillStyle = '#3B82F6';
+                        ctx.beginPath();
+                        ctx.roundRect(x - barWidth / 2, y, barWidth, barHeight, 5);
+                        ctx.fill();
+
+                        ctx.fillStyle = '#1f2937';
+                        ctx.fillText(item.value, x, y - 5);
+                        
+                        ctx.fillText(item.label, x, canvas.height - 5);
+                    });
+                }
+                drawBarChart();
+                window.addEventListener('resize', () => {
+                    canvas.width = canvas.offsetWidth;
+                    canvas.height = canvas.offsetWidth * 0.6;
+                    drawBarChart();
+                });
+
+                // --- Data Table Rendering & Filtering ---
+                const tableBody = document.querySelector('#data-table tbody');
+                const searchInput = document.getElementById('search-input');
+
+                function renderTable(data) {
+                    tableBody.innerHTML = '';
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        Object.values(row).forEach(value => {
+                            const td = document.createElement('td');
+                            td.textContent = value;
+                            tr.appendChild(td);
+                        });
+                        tableBody.appendChild(tr);
+                    });
+                }
+
+                function filterTable() {
+                    const searchText = searchInput.value.toLowerCase();
+                    const filteredData = data.filter(row => {
+                        return Object.values(row).some(value => {
+                            return value.toString().toLowerCase().includes(searchText);
+                        });
+                    });
+                    renderTable(filteredData);
+                }
+
+                renderTable(data);
+                searchInput.addEventListener('input', filterTable);
+            }
+
+            // Initial data fetch
+            fetchData();
+        });
+    </script>
 </body>
 </html>
